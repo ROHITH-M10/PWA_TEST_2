@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./favicon.png" type="image/x-icon" />
+    <link rel="manifest" href="./manifest.json" />
+    <link rel="apple-touch-icon" href="./favicon.png" />
+
+    <title>Need to add a title</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <div class="body-container">
+        <!-- Title -->
+        <h1>Need to add a title</h1>
+
+        <!-- Description -->
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita dolores quis, tenetur nam veniam quas natus ipsam dicta? Nihil cumque consectetur voluptatum recusandae odit. Inventore cupiditate fugiat quas architecto repellat!
+        </p>
+
+        <!--image gallery-->
+        <div class="gallery-container">
+            <div class="gallery">
+                <img src="https://images.ctfassets.net/hrltx12pl8hq/28ECAQiPJZ78hxatLTa7Ts/2f695d869736ae3b0de3e56ceaca3958/free-nature-images.jpg">
+                <img src="https://images.ctfassets.net/hrltx12pl8hq/28ECAQiPJZ78hxatLTa7Ts/2f695d869736ae3b0de3e56ceaca3958/free-nature-images.jpg">
+                <img src="https://images.ctfassets.net/hrltx12pl8hq/28ECAQiPJZ78hxatLTa7Ts/2f695d869736ae3b0de3e56ceaca3958/free-nature-images.jpg">
+                <img src="https://images.ctfassets.net/hrltx12pl8hq/28ECAQiPJZ78hxatLTa7Ts/2f695d869736ae3b0de3e56ceaca3958/free-nature-images.jpg">
+            </div>
+        </div>
+        
+
+        <!-- Dropdown Selection -->
+         <div class="selection-container">
+            <select id="pageSelect" class="dropdown" onchange="updateIframe(this.value)">
+            </select>
+         </div>
+
+        <!-- iFrame to display the selected content -->
+        <iframe id="contentFrame" src="https://research.amritahospitals.org/nafld/masld/new" title="NAFLD/MASLD Information" class="iframe"></iframe>
+
+        <div class="scroll-to-top">
+  
+            <a href="#">
+                <i class="fa fa-angle-up"></i>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        function updateIframe(url) {
+            if (url) {
+                document.getElementById("contentFrame").src = url;
+            }
+        }
+
+        // Store URLs as an object with names as keys
+        const pages = {
+            "NAFLD/MASLD": "https://research.amritahospitals.org/nafld/masld/new",
+            "Liver Health": "https://example.com/liver-health",
+            "Symptoms": "https://example.com/symptoms",
+            "Diagnosis": "https://example.com/diagnosis",
+            "Treatment": "https://example.com/treatment",
+            "Prevention": "https://example.com/prevention",
+            "Diet Plan": "https://example.com/diet-plan",
+            "Exercise Tips": "https://example.com/exercise-tips",
+            "Medical Research": "https://example.com/research",
+            "FAQ": "https://example.com/faq"
+        };
+
+        // Populate dropdown options dynamically
+        const pageSelect = document.getElementById("pageSelect");
+        Object.keys(pages).forEach(name => {
+            const option = document.createElement("option");
+            option.value = pages[name];
+            option.textContent = name;
+            pageSelect.appendChild(option);
+        });
+    </script>
+</body>
+</html>
