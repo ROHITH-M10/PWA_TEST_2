@@ -97,7 +97,6 @@ iframe {
     scrollbar-width: 1px; /* Hide scrollbar for Firefox */
     border-top: 2px solid rgb(165, 42, 42); /* Brownish-red border */
     border-bottom: 2px solid rgb(165, 42, 42); /* Brownish-red border */
-    border-radius: 5px;
 }
 
 
