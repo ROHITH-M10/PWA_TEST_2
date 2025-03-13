@@ -21,6 +21,7 @@ h1 {
     font-size: 1.8rem;
     font-weight: 600;
     margin: 30px 20px;
+    align-self: start;
     color: rgb(165, 42, 42);
 }
 
