@@ -16,18 +16,118 @@
 <body>
     <div class="body-container">
         <h1>PWA TITLE</h1>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo quos, mollitia numquam pariatur perferendis est ullam error ducimus molestiae excepturi incidunt corrupti. Animi nostrum ipsa dicta impedit doloribus voluptas ducimus.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse eos aut dolorem iure repellendus aperiam maxime facere consequuntur perspiciatis ad! Impedit consectetur modi quidem ab, animi commodi quod tenetur vero. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellendus, sunt sit in inventore fuga sapiente illo expedita tenetur aut doloribus ut, maxime ab aspernatur quam dolores. Accusamus qui omnis aperiam!</p>
 
-        <!-- Image Gallery -->
-        <div class="gallery-grid">
-            <img src="https://images.ctfassets.net/hrltx12pl8hq/28ECAQiPJZ78hxatLTa7Ts/2f695d869736ae3b0de3e56ceaca3958/free-nature-images.jpg">
-            <img src="https://images.ctfassets.net/hrltx12pl8hq/28ECAQiPJZ78hxatLTa7Ts/2f695d869736ae3b0de3e56ceaca3958/free-nature-images.jpg">
-            <img src="https://images.ctfassets.net/hrltx12pl8hq/28ECAQiPJZ78hxatLTa7Ts/2f695d869736ae3b0de3e56ceaca3958/free-nature-images.jpg">
-            <img src="https://images.ctfassets.net/hrltx12pl8hq/28ECAQiPJZ78hxatLTa7Ts/2f695d869736ae3b0de3e56ceaca3958/free-nature-images.jpg">
-        </div>
+       <!-- Image Gallery -->
+    <div class="gallery-grid">
+        <img src="sample_image.png" alt="image">
+        <img src="sample_image.png" alt="image">
+        <img src="sample_image.png" alt="image">
+        <img src="sample_image.png" alt="image">
+
+    </div>
 
         <!-- Button Navigation -->
         <div class="button-container" id="buttonContainer"></div>
+
+        <!-- iFrame to display the selected content -->
+        <iframe id="contentFrame" src="" title="NPWA" class="iframe"></iframe>
+
+        <div class="scroll-to-top">
+            <a href="#">
+                <i class="fa fa-angle-up"></i>
+            </a>
+        </div>
     </div>
+
+    <script>
+        // Store URLs as an object with names as keys
+        const pages = {
+        "NAFLD/MASLD": "https://research.amritahospitals.org/nafld/masld/new",
+        "Liver Health": "https://example.com/liver-health",
+        "Symptoms": "https://example.com/symptoms",
+        "Diagnosis": "https://example.com/diagnosis",
+        "Treatment": "https://example.com/treatment",
+        "Prevention": "https://example.com/prevention",
+        "Diet Plan": "https://example.com/diet-plan",
+        "Exercise Tips": "https://example.com/exercise-tips",
+        "Medical Research": "https://example.com/research",
+        "FAQ": "https://example.com/faq",
+        "Contact Us": "https://example.com/contact-us",
+        "About Us": "https://example.com/about-us",
+        "Privacy Policy": "https://example.com/privacy-policy",
+        "Terms of Service": "https://example.com/terms-of-service",
+        "Blog": "https://example.com/blog",
+        "News & Updates": "https://example.com/news",
+        "Patient Stories": "https://example.com/patient-stories",
+        "Clinical Trials": "https://example.com/clinical-trials",
+        "Support Groups": "https://example.com/support-groups",
+        "Mental Health & Liver": "https://example.com/mental-health-liver",
+        "Liver Detox Myths": "https://example.com/liver-detox-myths",
+        "Common Liver Diseases": "https://example.com/common-liver-diseases",
+        "Liver Transplant": "https://example.com/liver-transplant",
+        "Alcohol & Liver Damage": "https://example.com/alcohol-liver-damage",
+        "Viral Hepatitis": "https://example.com/viral-hepatitis",
+        "Fatty Liver vs Hepatitis": "https://example.com/fatty-liver-vs-hepatitis",
+        "Pediatric Liver Health": "https://example.com/pediatric-liver-health",
+        "Alternative Medicine": "https://example.com/alternative-medicine",
+        "Liver Biopsy": "https://example.com/liver-biopsy",
+        "Blood Tests for Liver": "https://example.com/blood-tests-liver",
+        "Liver-Friendly Recipes": "https://example.com/liver-friendly-recipes",
+        "Yoga for Liver Health": "https://example.com/yoga-liver-health",
+        "Supplements & Liver": "https://example.com/supplements-liver",
+        "Medication & Liver": "https://example.com/medication-liver",
+        "Genetic Factors": "https://example.com/genetic-factors",
+        "Liver Fibrosis": "https://example.com/liver-fibrosis",
+        "Chronic Liver Conditions": "https://example.com/chronic-liver-conditions",
+        "Non-Alcoholic Liver Issues": "https://example.com/non-alcoholic-liver",
+        "Liver Function Tests": "https://example.com/liver-function-tests",
+        "Liver Surgery & Risks": "https://example.com/liver-surgery-risks"
+    };
+
+        // Function to update iframe source
+        function updateIframe(url) {
+            if (url) {
+                // update iframe source
+                document.getElementById("contentFrame").src = url;
+            }
+        }
+
+        function updateStyle(name) {
+            // remove active class from all buttons
+            const buttons = document.getElementsByClassName("nav-button");
+            for (let i = 0; i < buttons.length; i++) {
+                buttons[i].classList.remove("nav-button-active");
+            }
+            // add active class to the clicked button
+            document.getElementById(name).classList.add("nav-button-active");
+        }
+
+        function updateScroll() {
+            // scroll to id contentFrame
+            document.getElementById("contentFrame").scrollIntoView({ behavior: "smooth" });
+            
+        }
+
+        function updateOnClick(name) {
+            // update iframe source
+            updateStyle(name);
+            updateScroll();
+            updateIframe(pages[name]);
+        }
+
+        // Populate button navigation dynamically
+        const buttonContainer = document.getElementById("buttonContainer");
+        Object.keys(pages).forEach(name => {
+            const button = document.createElement("button");
+            button.textContent = name;
+            button.classList.add("nav-button");
+            // add unique id to each button
+            button.id = name;
+            button.onclick = () => updateOnClick(name);
+            buttonContainer.appendChild(button);
+        });
+    </script>
 </body>
+
 </html>

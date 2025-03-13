@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
 body {
@@ -74,10 +75,25 @@ p {
     border: 2px solid rgb(165, 42, 42);
 }
 
-.nav-button:hover {
+.nav-button-active {
     background-color: white;
     color: rgb(165, 42, 42);
     border: 2px solid rgb(165, 42, 42);
+}
+
+iframe{
+    width: 100%;
+    height: 100vh;
+    border: none;
+}
+
+.fa-angle-up{
+    color: rgb(165, 42, 42);
+    cursor: pointer;
+    z-index: 1000;
+}
+.scroll-to-top{
+    font-size: 2rem;
 }
 
 @media screen and (max-width: 768px) {
