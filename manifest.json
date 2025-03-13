@@ -1,8 +1,8 @@
 {
-    "name": "PWA",
-    "short_name": "PWA",
-    "start_url": "./index.html",
-    "description": "PWA",
+    "name": "NAFLD/MASLD",
+    "short_name": "NAFLD/MASLD",
+    "start_url": "./",
+    "description": "NAFLD-Awareness and Lifestyle Questionnaire",
     "display": "standalone",
     "orientation": "portrait-primary",
     "background_color": "#ffffff",

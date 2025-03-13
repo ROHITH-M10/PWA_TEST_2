@@ -6,34 +6,23 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: rgb(255, 255, 255); /* White background */
-    color: black;  /* Default text color */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    background-color: white;
+    color: black;
 }
 
-/* Main container */
 .body-container {
-    background-color: rgb(243, 243, 243); /* Light grey background */
-    width: 60%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
 }
 
-/* Heading */
 h1 {
     font-size: 1.8rem;
     font-weight: 600;
-    align-self: flex-start;
     margin: 30px 20px;
-    color: rgb(165, 42, 42); /* Brownish-red heading */
+    color: rgb(165, 42, 42);
 }
 
-/* Description */
 p {
     font-size: 1.2rem;
     line-height: 1.4;
@@ -41,113 +30,69 @@ p {
     margin-bottom: 30px;
 }
 
-/*image gallery*/
+/* New Image Gallery Grid */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    width: 90%;
+    padding: 20px 0;
+    justify-content: center;
+}
 
-.gallery-container {
-    overflow: hidden;
-    white-space: nowrap;
+.gallery-grid img {
     width: 100%;
-}
-
-.gallery {
-    display: flex;
-    gap: 20px;
-    animation: scroll 10s linear infinite;
-}
-
-.gallery img {
-    width: 200px;
     height: auto;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
 }
 
-@keyframes scroll {
-    from {
-        transform: translateX(100%);
-    }
-    to {
-        transform: translateX(-100%);
-    }
+.gallery-grid img:hover {
+    transform: scale(1.05);
 }
 
-/* Selection container */
-.selection-container {
+.button-container {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     margin: 30px 0;
-    width: 80%;
-}
-
-/* Dropdown styling */
-select {
-    padding: 10px;
-    font-size: 1.2rem;
-    margin: 0 10px;
-    width: 100%;
-    border: 2px solid rgb(165, 42, 42); /* Brownish-red border */
-    background-color: white;
-    color: black; /* Black text */
-    border-radius: 5px;
-    outline: none;
-}
-
-/* iFrame styling */
-iframe {
     width: 95%;
-    height: 100vh;
-    scrollbar-width: 1px; /* Hide scrollbar for Firefox */
-    border-top: 2px solid rgb(165, 42, 42); /* Brownish-red border */
-    border-bottom: 2px solid rgb(165, 42, 42); /* Brownish-red border */
 }
 
-
-/* Button Styling */
-button {
-    padding: 10px 20px;
-    font-size: 1.2rem;
+.nav-button {
+    padding: 10px;
+    font-size: 1rem;
     margin: 5px;
-    background-color: rgb(165, 42, 42); /* Brownish-red button */
-    color: white; /* White text */
+    background-color: rgb(165, 42, 42);
+    color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: all 0.3s ease-in-out;
-}
-
-button:hover {
-    background-color: black; /* Black background on hover */
-    color: white; /* White text on hover */
-}
-
-/* Add hover effect for select */
-select:hover {
-    border-color: black; /* Black border on hover */
-}
-
-/* Add a smooth transition effect */
-select, iframe, button {
-    transition: all 0.3s ease-in-out;
-}
-
-
-/* Scroll to top */
-
-.scroll-to-top{
-    width: 100%;
-    text-align: right;
-    padding: 25px;
-}
-.scroll-to-top a {
     text-decoration: none;
-    color: white; /* White text */
-    background-color: rgb(165, 42, 42); /* Brownish-red background */
-    padding: 10px;
-    border-radius: 50%;
-    font-size: 1.2rem;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+    border: 2px solid rgb(165, 42, 42);
+}
 
+.nav-button:hover {
+    background-color: white;
+    color: rgb(165, 42, 42);
+    border: 2px solid rgb(165, 42, 42);
 }
 
 @media screen and (max-width: 768px) {
-    .body-container {
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+
+    .button-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
         width: 100%;
+    }
+    .nav-button {
+        width: 80%;
     }
 }
