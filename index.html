@@ -44,54 +44,55 @@
         // Store URLs as an object with names as keys
         const pages = {
         "NAFLD/MASLD": "https://research.amritahospitals.org/nafld/masld/new",
-        "Liver Health": "https://example.com/liver-health",
-        "Symptoms": "https://example.com/symptoms",
-        "Diagnosis": "https://example.com/diagnosis",
-        "Treatment": "https://example.com/treatment",
-        "Prevention": "https://example.com/prevention",
-        "Diet Plan": "https://example.com/diet-plan",
-        "Exercise Tips": "https://example.com/exercise-tips",
-        "Medical Research": "https://example.com/research",
-        "FAQ": "https://example.com/faq",
-        "Contact Us": "https://example.com/contact-us",
-        "About Us": "https://example.com/about-us",
-        "Privacy Policy": "https://example.com/privacy-policy",
-        "Terms of Service": "https://example.com/terms-of-service",
-        "Blog": "https://example.com/blog",
-        "News & Updates": "https://example.com/news",
-        "Patient Stories": "https://example.com/patient-stories",
-        "Clinical Trials": "https://example.com/clinical-trials",
-        "Support Groups": "https://example.com/support-groups",
-        "Mental Health & Liver": "https://example.com/mental-health-liver",
-        "Liver Detox Myths": "https://example.com/liver-detox-myths",
-        "Common Liver Diseases": "https://example.com/common-liver-diseases",
-        "Liver Transplant": "https://example.com/liver-transplant",
-        "Alcohol & Liver Damage": "https://example.com/alcohol-liver-damage",
-        "Viral Hepatitis": "https://example.com/viral-hepatitis",
-        "Fatty Liver vs Hepatitis": "https://example.com/fatty-liver-vs-hepatitis",
-        "Pediatric Liver Health": "https://example.com/pediatric-liver-health",
-        "Alternative Medicine": "https://example.com/alternative-medicine",
-        "Liver Biopsy": "https://example.com/liver-biopsy",
-        "Blood Tests for Liver": "https://example.com/blood-tests-liver",
-        "Liver-Friendly Recipes": "https://example.com/liver-friendly-recipes",
-        "Yoga for Liver Health": "https://example.com/yoga-liver-health",
-        "Supplements & Liver": "https://example.com/supplements-liver",
-        "Medication & Liver": "https://example.com/medication-liver",
-        "Genetic Factors": "https://example.com/genetic-factors",
-        "Liver Fibrosis": "https://example.com/liver-fibrosis",
-        "Chronic Liver Conditions": "https://example.com/chronic-liver-conditions",
-        "Non-Alcoholic Liver Issues": "https://example.com/non-alcoholic-liver",
-        "Liver Function Tests": "https://example.com/liver-function-tests",
-        "Liver Surgery & Risks": "https://example.com/liver-surgery-risks"
+        "Sample2": "https://example.com/liver-health",
+        "Sample3": "https://example.com/symptoms",
+        "Sample4": "https://example.com/diagnosis",
+        "Sample5": "https://example.com/treatment",
+        "Sample6": "https://example.com/prevention",
+        "Sample7": "https://example.com/diet-plan",
+        "Sample8": "https://example.com/exercise-tips",
+        "Sample8": "https://example.com/research",
+        "Sample9": "https://example.com/faq",
+        "Sample10": "https://example.com/contact-us",
+        "Sample11": "https://example.com/about-us",
+        "Sample12": "https://example.com/privacy-policy",
+        "Sample13": "https://example.com/terms-of-service",
+        "Sample14": "https://example.com/blog",
+        "Sample15": "https://example.com/news",
+        "Sample16": "https://example.com/patient-stories",
+        "Sample17": "https://example.com/clinical-trials",
+        "Sample18": "https://example.com/support-groups",
+        "Sample19": "https://example.com/mental-health-liver",
+        "Sample20": "https://example.com/liver-detox-myths",
+        "Sample21": "https://example.com/common-liver-diseases",
+        "Sample22": "https://example.com/liver-transplant",
+        "Sample23": "https://example.com/alcohol-liver-damage",
+        "Sample24": "https://example.com/viral-hepatitis",
+        "Sample25": "https://example.com/fatty-liver-vs-hepatitis",
+        "Sample26": "https://example.com/pediatric-liver-health",
+        "Sample27": "https://example.com/alternative-medicine",
+        "Sample28": "https://example.com/liver-biopsy",
+        "Sample29": "https://example.com/blood-tests-liver",
+        "Sample30": "https://example.com/liver-friendly-recipes",
+        "Sample31": "https://example.com/yoga-liver-health",
+        "Sample32": "https://example.com/supplements-liver",
+        "Sample33": "https://example.com/medication-liver",
+        "Sample34": "https://example.com/genetic-factors",
+        "Sample35": "https://example.com/liver-fibrosis",
+        "Sample36": "https://example.com/chronic-liver-conditions",
+        "Sample37": "https://example.com/non-alcoholic-liver",
+        "Sample38": "https://example.com/liver-function-tests",
+        "Sample39": "https://example.com/liver-surgery-risks"
     };
 
         // Function to update iframe source
-        function updateIframe(url) {
+        function updateIframeContent(url) {
             if (url) {
                 // update iframe source
                 document.getElementById("contentFrame").src = url;
             }
         }
+
 
         function updateStyle(name) {
             // remove active class from all buttons
@@ -113,7 +114,7 @@
             // update iframe source
             updateStyle(name);
             updateScroll();
-            updateIframe(pages[name]);
+            updateIframeContent(pages[name]);
         }
 
         // Populate button navigation dynamically
