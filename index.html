@@ -169,6 +169,8 @@
     function closePopup() {
         document.getElementById("iframePopup").style.display = "none";
         document.getElementById("popupFrame").src = "";
+        // scroll to top
+        document.getElementById("body").scrollIntoView();
     }
 
     window.onclick = function(event) {
