@@ -6,130 +6,174 @@
     <link rel="icon" href="./favicon.png" type="image/x-icon" />
     <link rel="manifest" href="./manifest.json" />
     <link rel="apple-touch-icon" href="./favicon.png" />
-
     <title>PWA TITLE</title>
-
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script defer src="script.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-<body>
-    <div class="body-container">
-        <h1>PWA TITLE</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse eos aut dolorem iure repellendus aperiam maxime facere consequuntur perspiciatis ad! Impedit consectetur modi quidem ab, animi commodi quod tenetur vero. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellendus, sunt sit in inventore fuga sapiente illo expedita tenetur aut doloribus ut, maxime ab aspernatur quam dolores. Accusamus qui omnis aperiam!</p>
+<body id="body">
 
-       <!-- Image Gallery -->
-    <div class="gallery-grid">
-        <img src="sample_image.png" alt="image">
-        <img src="sample_image.png" alt="image">
-        <img src="sample_image.png" alt="image">
-        <img src="sample_image.png" alt="image">
+<h2>PWA TITLE</h2>
+<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad officia quod dolorum deleniti sit dignissimos itaque perferendis, veritatis cum a quibusdam atque accusantium inventore assumenda eum cupiditate asperiores molestias nobis? Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sequi unde atque quos asperiores? Ipsum cum a nemo, earum quas ab accusantium quidem iure, veniam minima sint dolores eius. Quo, commodi? Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima ipsum culpa ipsam suscipit fuga obcaecati autem, ut hic eaque veritatis, delectus iste maxime, voluptas in rem fugiat qui amet! Laboriosam?</p>
 
+<!-- Image Gallery -->
+<div class="gallery-grid">
+    <img src="sample_image.png" alt="image">
+    <img src="sample_image.png" alt="image">
+    <img src="sample_image.png" alt="image">
+    <img src="sample_image.png" alt="image">
+</div>
+
+<!-- Dropdowns -->
+<div class="dropdown">
+    <button onclick="toggleDropdown('generalPagesDropdown')" class="dropbtn">General Pages</button>
+    <div id="generalPagesDropdown" class="dropdown-content"></div>
+</div>
+
+<div class="dropdown">
+    <button onclick="toggleDropdown('domainOneDropdown')" class="dropbtn">Domain One Pages</button>
+    <div id="domainOneDropdown" class="dropdown-content"></div>
+</div>
+
+<div class="dropdown">
+    <button onclick="toggleDropdown('domainTwoDropdown')" class="dropbtn">Domain Two Pages</button>
+    <div id="domainTwoDropdown" class="dropdown-content"></div>
+</div>
+
+<div class="dropdown">
+    <button onclick="toggleDropdown('domainThreeDropdown')" class="dropbtn">Domain Three Pages</button>
+    <div id="domainThreeDropdown" class="dropdown-content"></div>
+</div>
+
+<div class="dropdown">
+    <button onclick="toggleDropdown('domainFourDropdown')" class="dropbtn">Domain Four Pages</button>
+    <div id="domainFourDropdown" class="dropdown-content"></div>
+</div>
+
+<!-- Fullscreen Popup for iFrame -->
+<div id="iframePopup" class="popup">
+    <div class="popup-header">
+        <div class="close-btn" onclick="closePopup()"><i class="fa fa-bars"></i></div>
     </div>
+    <iframe id="popupFrame" src="" title=""></iframe>
+</div>
 
-        <!-- Button Navigation -->
-        <div class="button-container" id="buttonContainer"></div>
+<!-- <div class="scroll-to-top">
+    <a href="#body">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div> -->
 
-        <!-- iFrame to display the selected content -->
-        <iframe id="contentFrame" src="" title="NPWA" class="iframe"></iframe>
+<script>
 
-        <div class="scroll-to-top">
-            <a href="#">
-                <i class="fa fa-angle-up"></i>
-            </a>
-        </div>
-    </div>
-
-    <script>
-        // Store URLs as an object with names as keys
-        const pages = {
-        "NAFLD/MASLD": "https://research.amritahospitals.org/nafld/masld/new",
-        "Sample2": "https://example.com/liver-health",
-        "Sample3": "https://example.com/symptoms",
-        "Sample4": "https://example.com/diagnosis",
-        "Sample5": "https://example.com/treatment",
-        "Sample6": "https://example.com/prevention",
-        "Sample7": "https://example.com/diet-plan",
-        "Sample8": "https://example.com/exercise-tips",
-        "Sample8": "https://example.com/research",
-        "Sample9": "https://example.com/faq",
-        "Sample10": "https://example.com/contact-us",
-        "Sample11": "https://example.com/about-us",
-        "Sample12": "https://example.com/privacy-policy",
-        "Sample13": "https://example.com/terms-of-service",
-        "Sample14": "https://example.com/blog",
-        "Sample15": "https://example.com/news",
-        "Sample16": "https://example.com/patient-stories",
-        "Sample17": "https://example.com/clinical-trials",
-        "Sample18": "https://example.com/support-groups",
-        "Sample19": "https://example.com/mental-health-liver",
-        "Sample20": "https://example.com/liver-detox-myths",
-        "Sample21": "https://example.com/common-liver-diseases",
-        "Sample22": "https://example.com/liver-transplant",
-        "Sample23": "https://example.com/alcohol-liver-damage",
-        "Sample24": "https://example.com/viral-hepatitis",
-        "Sample25": "https://example.com/fatty-liver-vs-hepatitis",
-        "Sample26": "https://example.com/pediatric-liver-health",
-        "Sample27": "https://example.com/alternative-medicine",
-        "Sample28": "https://example.com/liver-biopsy",
-        "Sample29": "https://example.com/blood-tests-liver",
-        "Sample30": "https://example.com/liver-friendly-recipes",
-        "Sample31": "https://example.com/yoga-liver-health",
-        "Sample32": "https://example.com/supplements-liver",
-        "Sample33": "https://example.com/medication-liver",
-        "Sample34": "https://example.com/genetic-factors",
-        "Sample35": "https://example.com/liver-fibrosis",
-        "Sample36": "https://example.com/chronic-liver-conditions",
-        "Sample37": "https://example.com/non-alcoholic-liver",
-        "Sample38": "https://example.com/liver-function-tests",
-        "Sample39": "https://example.com/liver-surgery-risks"
+    const pages = {
+        "generalPagesDropdown": {
+            "Amrita Hospitals Research Data Request": "https://research.amritahospitals.org/his-data-request",
+            "Sample1": "https://example.com/page1",
+            "Sample2": "https://example.com/page2",
+            "Sample3": "https://example.com/page1",
+            "Sample4": "https://example.com/page2",
+            "Sample5": "https://example.com/page1",
+            "Sample6": "https://example.com/page2",
+            "Sample7": "https://example.com/page1",
+            "Sample8": "https://example.com/page2"
+        },
+        "domainOneDropdown": {
+            "NAFLD/MASLD": "https://research.amritahospitals.org/nafld/masld/new",
+            "Sample1": "https://example.com/page8",
+            "Sample2": "https://example.com/page9",
+            "Sample3": "https://example.com/page1",
+            "Sample4": "https://example.com/page2",
+            "Sample5": "https://example.com/page1",
+            "Sample6": "https://example.com/page2",
+            "Sample7": "https://example.com/page1",
+            "Sample8": "https://example.com/page2",
+            "Sample9": "https://example.com/page1",
+            "Sample10": "https://example.com/page2"
+        },
+        "domainTwoDropdown": {
+            "Sample1": "https://example.com/page16",
+            "Sample2": "https://example.com/page17",
+            "Sample3": "https://example.com/page1",
+            "Sample4": "https://example.com/page2",
+            "Sample5": "https://example.com/page1",
+            "Sample6": "https://example.com/page2",
+            "Sample7": "https://example.com/page1",
+            "Sample8": "https://example.com/page2",
+            "Sample9": "https://example.com/page1",
+            "Sample10": "https://example.com/page2"
+        },
+        "domainThreeDropdown": {
+            "Sample1": "https://example.com/page24",
+            "Sample2": "https://example.com/page25",
+            "Sample3": "https://example.com/page1",
+            "Sample4": "https://example.com/page2",
+            "Sample5": "https://example.com/page1",
+            "Sample6": "https://example.com/page2",
+            "Sample7": "https://example.com/page1",
+            "Sample8": "https://example.com/page2",
+            "Sample9": "https://example.com/page1",
+            "Sample10": "https://example.com/page2"
+        },
+        "domainFourDropdown": {
+            "Sample1": "https://example.com/page32",
+            "Sample2": "https://example.com/page33",
+            "Sample3": "https://example.com/page1",
+            "Sample4": "https://example.com/page2",
+            "Sample5": "https://example.com/page1",
+            "Sample6": "https://example.com/page2",
+            "Sample7": "https://example.com/page1",
+            "Sample8": "https://example.com/page2",
+            "Sample9": "https://example.com/page1",
+            "Sample10": "https://example.com/page2"
+        }
     };
 
-        // Function to update iframe source
-        function updateIframeContent(url) {
-            if (url) {
-                // update iframe source
-                document.getElementById("contentFrame").src = url;
-            }
-        }
-
-
-        function updateStyle(name) {
-            // remove active class from all buttons
-            const buttons = document.getElementsByClassName("nav-button");
-            for (let i = 0; i < buttons.length; i++) {
-                buttons[i].classList.remove("nav-button-active");
-            }
-            // add active class to the clicked button
-            document.getElementById(name).classList.add("nav-button-active");
-        }
-
-        function updateScroll() {
-            // scroll to id contentFrame
-            document.getElementById("contentFrame").scrollIntoView({ behavior: "smooth" });
-            
-        }
-
-        function updateOnClick(name) {
-            // update iframe source
-            updateScroll();
-            updateIframeContent(pages[name]);
-            updateStyle(name);
-            
-        }
-
-        // Populate button navigation dynamically
-        const buttonContainer = document.getElementById("buttonContainer");
-        Object.keys(pages).forEach(name => {
-            const button = document.createElement("button");
-            button.textContent = name;
-            button.classList.add("nav-button");
-            // add unique id to each button
-            button.id = name;
-            button.onclick = () => updateOnClick(name);
-            buttonContainer.appendChild(button);
+    function populateDropdown(dropdownId, pageList) {
+        const dropdown = document.getElementById(dropdownId);
+        dropdown.innerHTML = '';
+        Object.keys(pageList).forEach(name => {
+            const link = document.createElement("a");
+            link.href = "#";
+            link.textContent = name;
+            link.onclick = function() {
+                openPopup(pageList[name]);
+                closeAllDropdowns();
+            };
+            dropdown.appendChild(link);
         });
-    </script>
-</body>
+    }
 
+    Object.keys(pages).forEach(id => populateDropdown(id, pages[id]));
+
+    function toggleDropdown(dropdownId) {
+        closeAllDropdowns();
+        document.getElementById(dropdownId).classList.toggle("show");
+    }
+
+    function closeAllDropdowns() {
+        document.querySelectorAll(".dropdown-content").forEach(dropdown => {
+            dropdown.classList.remove("show");
+        });
+    }
+
+    function openPopup(url) {
+        document.getElementById("popupFrame").src = url;
+        document.getElementById("iframePopup").style.display = "flex";
+    }
+
+    function closePopup() {
+        document.getElementById("iframePopup").style.display = "none";
+        document.getElementById("popupFrame").src = "";
+    }
+
+    window.onclick = function(event) {
+        if (!event.target.matches('.dropbtn')) {
+            closeAllDropdowns();
+        }
+    };
+
+</script>
+
+</body>
 </html>
